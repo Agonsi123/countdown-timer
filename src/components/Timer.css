@@ -55,7 +55,8 @@ input, .pTag{
         margin: 0;
     }
     .hTag{
-        font-size: 14.5px;
+        font-size: 14px;
+        margin-left: 4%;
     }
     input{
         width: 100px;
