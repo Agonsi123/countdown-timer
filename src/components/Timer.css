@@ -24,8 +24,13 @@ input {
     border: 1px solid #999;
     outline: none;
 }
+.hTag{
+    color: darkgreen;
+}
 .pTag{
     margin-top: -10px;
+    font-weight: bold;
+    color: darkgreen;
 }
 input, .pTag{
     margin-left: 30%;
