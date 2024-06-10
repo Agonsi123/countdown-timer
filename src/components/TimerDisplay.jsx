@@ -15,16 +15,18 @@ const TimerDisplay = (props) =>{
 
     const startTimer = () =>{
         if (!isRunning && props.duration > 0) {
-            const newIntervalId = setInterval(() =>{
-                setTimeLeft((PrevTimeLeft) => PrevTimeLeft - 1);
-                if (timeLeft === 0) {
-                    clearInterval(newIntervalId);
-                    setIsRunning(false);
-                }
-            }, 1000);
-            setIntervalId(newIntervalId);
-            setIsRunning(true);
-        }
+            const newIntervalId = setInterval(() =>
+                setTimeLeft((prevTimeLeft) =>{
+                    if (prevTimeLeft <= 0){
+                        clearInterval
+                        (newIntervalId)
+                        return 0;
+                    }else{
+                        return prevTimeLeft - 1;
+                    }
+                }), 1000);
+            setIntervalId(newIntervalId); 
+        };
     };
 
     useEffect(() =>{
@@ -36,10 +38,8 @@ const TimerDisplay = (props) =>{
     }, [intervalId, setIsRunning, setTimeLeft]);
 
     const pauseTimer = () => {
-        if (isRunning) {
-            clearInterval(intervalId);
-            setIsRunning(false);
-        }
+        setIsRunning(false);
+        clearInterval(intervalId);
     };
 
     const resetTimer = () => {
